@@ -1,18 +1,21 @@
 #include<iostream>
+#include <vector>
 using namespace std;
 
-int fibonacci(int num, int arr[]) {
+int fibonacci(int num, vector<int>&arr[]) {
     
     if (arr[num] != -1)
         return arr[num];
 
 
-    if (num == 0) {
-        arr[num] = 0;  
+      if (num == 1) {
+        arr[num] = 1;  
         return arr[num];
     }
-    if (num == 1) {
-        arr[num] = 1;  
+
+    if(num == 2)
+    {
+        arr[num] =2;
         return arr[num];
     }
 
@@ -27,17 +30,12 @@ int main() {
     cin >> n;
 
   
-    int arr[n + 1];  
-
-    for (int i = 0; i <= n; i++) {
-        arr[i] = -1;  
-    }
+    vector<int> arr(n + 1, -1); 
 
     cout << "The Fibonacci number of " << n << " is: " << fibonacci(n, arr) << endl;
 
-   
     cout << "Fibonacci sequence up to " << n << ": ";
-    for (int i = 0; i <= n; i++) {
+    for (int i = 1; i <= n; i++) {
         cout << arr[i] << " ";
     }
     cout << endl;
